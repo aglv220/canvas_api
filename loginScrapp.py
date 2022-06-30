@@ -2,6 +2,8 @@
 import imp
 from lib2to3.pgen2 import driver
 from telnetlib import EC
+import time
+from tkinter import BROWSE
 from token import OP
 from traceback import print_tb
 from selenium import webdriver
@@ -9,6 +11,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
 
 #definir opciones de ingreso a chrome
 opts = Options()
@@ -24,7 +27,7 @@ buton1= driver.find_element(By.XPATH,'//div[@class="ctacanvas_main"]')
 buton1.click() 
 
 #definir credenciales 
-user = "U17200379@utp.edu.pe"
+user = "U21213625@utp.edu.pe"
 #definir contraseña y leer el archivo  
 password = open('password.txt').readline().strip()
 
@@ -39,16 +42,18 @@ input_pass.send_keys(password)
 
 #declarar el boton de login y hacer click
 boton = driver.find_element(By.XPATH,'//button[@class="Button Button--login"]')
-boton.click() 
+boton.click()
 
 #acceder al menu de cursos y hacer click 
 menuCurso = driver.find_element(By.XPATH,'//header[@id="header"]//button[@id="global_nav_courses_link"]')
 menuCurso.click()
 
-curso1 = WebDriverWait(driver,20).until(
-    EC.presence_of_element_located((By.XPATH,'//a[@class="fOyUs_bGBk fbyHH_bGBk fbyHH_bSMN"]'))
-)
-curso1.click()
 
-tareas = driver.find_element(By.XPATH,'//a[@class="assignments"]')
-tareas.click()
+#repositorios = driver.find_elements(By.XPATH,'//span[@class="Grouping-styles__title"]')
+repositorios = driver.find_elements(By.XPATH,'//div[@class="tray-with-space-for-global-nav"] a')
+
+for repositorio in repositorios:
+  print (repositorio.get_attribute("innerHTML"))
+  
+time.sleep(10)
+BROWSE.close()
