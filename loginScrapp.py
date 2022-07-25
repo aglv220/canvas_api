@@ -27,9 +27,9 @@ buton1= driver.find_element(By.XPATH,'//div[@class="ctacanvas_main"]')
 buton1.click() 
 
 #definir credenciales 
-user = "U21213625@utp.edu.pe"
+user = open('corre.txt').readline().strip()
 #definir contraseña y leer el archivo  
-password = open('password.txt').readline().strip()
+password = open('contra.txt').readline().strip()
 
 #recorrer el doom y buscar el input 
 input_user = WebDriverWait(driver, 10).until(
