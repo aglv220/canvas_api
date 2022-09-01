@@ -29,7 +29,7 @@ class LoginSpider(Spider):
 
     return scrapy.FormRequest.from_response(
       response,
-      formdata={'pseudonym_session_password': 'u17200379@utp.edu.pe', 'password': open('./password.txt').readline().strip()},
+      formdata={'pseudonym_session_password': open('./correo.txt').readline().strip(), 'password': open('./password.txt').readline().strip()},
       callback=self.after_login
     )
 
