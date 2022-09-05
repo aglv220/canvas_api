@@ -20,7 +20,7 @@ driver = webdriver.Chrome('./chromedriver.exe',options=opts)
 driver.get('https://portalestudiante03.utp.edu.pe/')
 
 #definir credenciales user y password
-user = "U17200379@utp.edu.pe"
+user = "correo"
 #definir contraseña y leer el archivo  
 password = open('password.txt').readline().strip()
 
